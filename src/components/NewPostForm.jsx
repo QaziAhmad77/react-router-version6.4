@@ -1,5 +1,4 @@
 import { Form } from 'react-router-dom';
-
 import classes from './NewPostForm.module.css';
 
 function NewPostForm({ onCancel, submitting }) {

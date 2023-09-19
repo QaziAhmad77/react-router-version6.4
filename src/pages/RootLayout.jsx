@@ -7,7 +7,7 @@ function RootLayout() {
     <>
       <MainNavigation />
       <main>
-        <Outlet />
+        <Outlet /> // all childe component after this route "/" will be render here
       </main>
     </>
   );

@@ -13,16 +13,23 @@ import PostDetailPage, { loader as blogPostLoader } from './pages/PostDetail';
 import RootLayout from './pages/RootLayout';
 import WelcomePage from './pages/Welcome';
 
+// const router = createBrowserRouter([ we can also do like this
+//   {path:"/",element:<WelcomePage/>}
+// ])
+
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />} errorElement={<ErrorPage />}>  // this will be common for all
-      <Route index element={<WelcomePage />} />  // this will be our main page
+    <Route path="/" element={<RootLayout />} errorElement={<ErrorPage />}>
+      {' '}
+      // this will be common for all
+      <Route index element={<WelcomePage />} /> // this will be our main page
       <Route path="/blog" element={<BlogLayout />}>
         <Route index element={<BlogPostsPage />} loader={blogPostsLoader} />
         <Route
           path=":id"
           element={<PostDetailPage />}
           loader={blogPostLoader}
+          errorElement={<p>An Error Occured !</p>}
         />
       </Route>
       <Route
@@ -35,6 +42,7 @@ const router = createBrowserRouter(
 );
 
 function App() {
+  console.log(window.location, 'Location');
   return <RouterProvider router={router} />;
 }
 

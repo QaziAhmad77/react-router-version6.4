@@ -9,7 +9,7 @@ function ErrorPage() {
     <>
       <MainNavigation />
       <main id="error-content">
-        <h1>An error occurred!</h1>
+        <h1>Page Not Found !</h1>
         <p>{error.message}</p>
       </main>
     </>

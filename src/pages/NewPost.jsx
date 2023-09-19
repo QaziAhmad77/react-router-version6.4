@@ -1,17 +1,20 @@
 import {
   redirect,
   useActionData,
+  useLocation,
   useNavigate,
   useNavigation,
 } from 'react-router-dom';
-
 import NewPostForm from '../components/NewPostForm';
 import { savePost } from '../util/api';
 
 function NewPostPage() {
   const data = useActionData();
   const navigate = useNavigate();
+  const location = useLocation();
   const navigation = useNavigation();
+  console.log(navigation.state, 'navigation');
+  console.log(location, 'useLocation');
 
   function cancelHandler() {
     navigate('/blog');
@@ -19,7 +22,7 @@ function NewPostPage() {
 
   return (
     <>
-      {data && data.status && <p>{data.message}</p>}
+      {data && data.status && <p>{data.message} hdfasdfasdf</p>}
       <NewPostForm
         onCancel={cancelHandler}
         submitting={navigation.state === 'submitting'}
